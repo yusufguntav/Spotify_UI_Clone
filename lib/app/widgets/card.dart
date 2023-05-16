@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spotify_ui_clone/variables/enums.dart';
+import 'package:spotify_ui_clone/app/models/content.dart';
 
 import '../style/colorTable.dart';
 import '../utils/utils.dart';
 import 'customText.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
-    super.key,
-    required this.title,
-    required this.imagePath,
-  });
-  final String title;
-  final String imagePath;
+  const CustomCard({super.key, required this.content});
+  final Content content;
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -30,14 +25,19 @@ class CustomCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(Utils.lowRadius / 2), bottomLeft: Radius.circular(Utils.lowRadius / 2)),
                   child: Image.asset(
-                    imagePath,
+                    content.imagePath,
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
             ),
             SizedBox(width: Utils.lowPadding),
-            CustomText(title)
+            Flexible(
+              child: CustomText(
+                content.title,
+                textOverflow: TextOverflow.fade,
+              ),
+            )
           ],
         ),
       ),
