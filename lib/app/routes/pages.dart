@@ -8,7 +8,7 @@ class Pages {
     GetPage(
       name: PageRoutes.homePage,
       binding: HomePageBinding(),
-      page: () => const HomePage(),
+      page: () => HomePage(),
     ),
   ];
 }

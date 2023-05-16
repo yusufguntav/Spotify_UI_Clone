@@ -11,7 +11,7 @@ class FilterBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: ColorTable.filterBubbleBackgroundColor,
+        color: ColorTable.darkThemeContentBackgroundColor,
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(Utils.highRadius),
           right: Radius.circular(Utils.highRadius),
@@ -20,7 +20,7 @@ class FilterBubble extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: Utils.normalPadding),
-        child: CustomText(title),
+        child: CustomText.low(title),
       ),
     );
   }

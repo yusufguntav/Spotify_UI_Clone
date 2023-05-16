@@ -10,14 +10,16 @@ class FilterSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(Utils.lowPadding),
+    return SizedBox(
       height: Utils.appBarHeight,
-      child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: Utils.lowPadding),
-        scrollDirection: Axis.horizontal,
-        itemCount: filterCount,
-        itemBuilder: (context, index) => filterBubbles[index],
+      child: Padding(
+        padding: EdgeInsets.all(Utils.lowPadding),
+        child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(width: Utils.lowPadding),
+          scrollDirection: Axis.horizontal,
+          itemCount: filterCount,
+          itemBuilder: (context, index) => filterBubbles[index],
+        ),
       ),
     );
   }

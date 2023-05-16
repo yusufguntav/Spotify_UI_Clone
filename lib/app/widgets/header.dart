@@ -9,18 +9,20 @@ class CustomHeader extends StatelessWidget {
   final List<IconButton> icons;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(Utils.lowPadding),
+    return SizedBox(
       height: Utils.appBarHeight,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomText.extraHigh(
-            title,
-            bold: true,
-          ),
-          Row(children: icons),
-        ],
+      child: Padding(
+        padding: EdgeInsets.all(Utils.lowPadding),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomText.extraHigh(
+              title,
+              bold: true,
+            ),
+            Row(children: icons),
+          ],
+        ),
       ),
     );
   }
