@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:spotify_ui_clone/app/models/content.dart';
+import 'package:spotify_ui_clone/app/widgets/card.dart';
 
 import '../utils/utils.dart';
-import 'card.dart';
 
 class CardGrill extends StatelessWidget {
-  const CardGrill({super.key, required this.cards});
-  final RxList<CustomCard> cards;
+  const CardGrill({super.key, required this.content});
+  final List<Content> content;
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Column(
-          children: [
-            for (int i = 0; i < cards.length; i += 2) ...[
-              (cards.length - i > 1)
-                  ? Column(
+    return Column(
+      children: [
+        for (int i = 0; i < content.length; i += 2) ...[
+          (content.length - i > 1)
+              ? Column(
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Expanded(child: cards[i]),
-                            SizedBox(width: Utils.lowPadding),
-                            Expanded(child: cards[i + 1]),
-                          ],
-                        ),
-                        SizedBox(height: Utils.normalPadding)
+                        Expanded(child: CustomCard(content: content[i])),
+                        SizedBox(width: Utils.lowPadding),
+                        Expanded(child: CustomCard(content: content[i + 1])),
                       ],
-                    )
-                  : Column(
+                    ),
+                    SizedBox(height: Utils.normalPadding)
+                  ],
+                )
+              : Column(
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Expanded(child: cards[i]),
-                          ],
-                        ),
-                        SizedBox(height: Utils.normalPadding)
+                        Expanded(child: CustomCard(content: content[i])),
                       ],
-                    )
-            ],
-          ],
-        ));
+                    ),
+                    SizedBox(height: Utils.normalPadding)
+                  ],
+                )
+        ],
+      ],
+    );
   }
 }

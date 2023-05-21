@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/models/content.dart';
 
-import '../../variables/enums.dart';
 import '../style/colorTable.dart';
 import '../utils/utils.dart';
 import 'customText.dart';

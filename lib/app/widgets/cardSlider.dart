@@ -2,27 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/widgets/bigCard.dart';
 
+import '../models/content.dart';
 import '../utils/utils.dart';
 
 class CardSlider extends StatelessWidget {
-  const CardSlider({super.key, required this.cards});
-  final RxList<BigCustomCard> cards;
+  const CardSlider({super.key, required this.content});
+  final List<Content> content;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Obx(
-          () => Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (int i = 0; i < cards.length; i++) ...[
-                Padding(
-                  padding: EdgeInsets.only(right: Utils.normalPadding),
-                  child: cards[i],
-                ),
-              ]
-            ],
-          ),
-        ));
+    return SizedBox(
+      width: Get.width,
+      height: Get.height * .3,
+      child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(width: Utils.normalPadding),
+          scrollDirection: Axis.horizontal,
+          itemCount: content.length,
+          itemBuilder: (context, index) => BigCustomCard(content: content[index])),
+    );
   }
 }

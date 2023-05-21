@@ -7,6 +7,8 @@ class ColorTable {
   static final darkThemeContentBackgroundColor = Colors.grey.shade900;
   static const greenContentColor = Colors.green;
   static final greyTextColor = Colors.grey.shade600;
+  static const bottomNavBarSelectedMenuColor = Colors.white;
+  static const bottomNavBarUnselectedMenuColor = Colors.white54;
 
   static Color get getTextColor => Colors.white;
 }

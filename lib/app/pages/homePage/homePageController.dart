@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spotify_ui_clone/app/widgets/bigCard.dart';
 
-import '../../../variables/enums.dart';
+import '../../variables/enums.dart';
 import '../../models/content.dart';
 import '../../style/colorTable.dart';
-import '../../widgets/card.dart';
 import '../../widgets/filterBubble.dart';
 
 class HomePageController extends GetxController {
@@ -18,17 +16,11 @@ class HomePageController extends GetxController {
     Content(Images.image6.getImagePath, ['Business', 'Technology'], 'techguy', 'AI'),
   ];
 
-  RxList<CustomCard> cards = <CustomCard>[].obs;
-  RxList<BigCustomCard> bigCards = <BigCustomCard>[].obs;
-  @override
-  void onReady() {
-    cards.value = [
-      for (int i = 0; i < contents.length; i++) ...[CustomCard(content: contents[i])]
-    ];
-    bigCards.value = [
-      for (int i = 0; i < 3; i++) ...[BigCustomCard(content: contents[i])]
-    ];
-    super.onReady();
+  List<Content> getShuffledContent() {
+    // We use toList method because we don't want reference list
+    List<Content> shuffledContent = contents.toList();
+    shuffledContent.shuffle();
+    return shuffledContent;
   }
 
   final List<IconButton> icons = [
