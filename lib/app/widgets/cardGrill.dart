@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:spotify_ui_clone/app/models/content.dart';
 import 'package:spotify_ui_clone/app/widgets/card.dart';
@@ -13,28 +15,19 @@ class CardGrill extends StatelessWidget {
       children: [
         for (int i = 0; i < content.length; i += 2) ...[
           (content.length - i > 1)
-              ? Column(
+              ? Row(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(child: CustomCard(content: content[i])),
-                        SizedBox(width: Utils.lowPadding),
-                        Expanded(child: CustomCard(content: content[i + 1])),
-                      ],
-                    ),
-                    SizedBox(height: Utils.normalPadding)
+                    Expanded(child: CustomCard(content: content[i])),
+                    SizedBox(width: Utils.lowPadding),
+                    Expanded(child: CustomCard(content: content[i + 1])),
                   ],
                 )
-              : Column(
+              : Row(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(child: CustomCard(content: content[i])),
-                      ],
-                    ),
-                    SizedBox(height: Utils.normalPadding)
+                    Expanded(child: CustomCard(content: content[i])),
                   ],
-                )
+                ),
+          SizedBox(height: Utils.normalPadding)
         ],
       ],
     );

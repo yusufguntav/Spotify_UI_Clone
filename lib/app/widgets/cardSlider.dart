@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/widgets/bigCard.dart';
@@ -12,7 +14,7 @@ class CardSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width,
-      height: Get.height * .3,
+      height: Get.height * .32,
       child: ListView.separated(
           separatorBuilder: (context, index) => SizedBox(width: Utils.normalPadding),
           scrollDirection: Axis.horizontal,

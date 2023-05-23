@@ -30,9 +30,12 @@ class MyApp extends StatelessWidget {
         return Overlay(
           initialEntries: [
             OverlayEntry(
-              builder: (context) => Scaffold(
-                body: child,
-                bottomNavigationBar: const BottomNavBar(),
+              builder: (context) => Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  child!,
+                  const BottomNavBar(),
+                ],
               ),
             )
           ],

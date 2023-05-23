@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/widgets/bottomNavBar/bottomNavBarController.dart';
@@ -11,7 +13,21 @@ class BottomNavBar extends GetView<BottomNavBarController> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<BottomNavBarController>();
-    return _bottomNavBar(controller);
+    return Obx(
+      () => DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.black,
+              Colors.transparent,
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
+        child: _bottomNavBar(controller),
+      ),
+    );
   }
 }
 

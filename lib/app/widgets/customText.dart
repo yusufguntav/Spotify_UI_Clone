@@ -17,18 +17,19 @@ class CustomText extends StatelessWidget {
   final TextOverflow? textOverflow;
   final double? wordSpacing;
   final int? maxlines;
-  CustomText(
-    this.text, {
-    Key? key,
-    this.textColor,
-    this.underlined = false,
-    this.bold = false,
-    this.centerText = false,
-    this.textOverflow,
-    this.maxlines,
-    this.lineThrough = false,
-    this.wordSpacing,
-  }) : super(key: key) {
+  final Color? shadowColor;
+  CustomText(this.text,
+      {Key? key,
+      this.textColor,
+      this.underlined = false,
+      this.bold = false,
+      this.centerText = false,
+      this.textOverflow,
+      this.maxlines,
+      this.lineThrough = false,
+      this.wordSpacing,
+      this.shadowColor})
+      : super(key: key) {
     textSize = Utils.normalTextSize;
   }
   CustomText.extraLow(
@@ -42,6 +43,7 @@ class CustomText extends StatelessWidget {
     this.maxlines,
     this.lineThrough = false,
     this.wordSpacing,
+    this.shadowColor,
   }) : super(key: key) {
     textSize = Utils.extraLowTextSize;
   }
@@ -56,6 +58,7 @@ class CustomText extends StatelessWidget {
     this.maxlines,
     this.lineThrough = false,
     this.wordSpacing,
+    this.shadowColor,
   }) : super(key: key) {
     textSize = Utils.lowTextSize;
   }
@@ -70,6 +73,7 @@ class CustomText extends StatelessWidget {
     this.maxlines,
     this.lineThrough = false,
     this.wordSpacing,
+    this.shadowColor,
   }) : super(key: key) {
     textSize = Utils.highTextSize;
   }
@@ -84,6 +88,7 @@ class CustomText extends StatelessWidget {
     this.maxlines,
     this.lineThrough = false,
     this.wordSpacing,
+    this.shadowColor,
   }) : super(key: key) {
     textSize = Utils.extraHighTextSize;
   }
@@ -99,12 +104,22 @@ class CustomText extends StatelessWidget {
     this.maxlines,
     this.lineThrough = false,
     this.wordSpacing,
+    this.shadowColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Text(
         text ?? '',
         style: TextStyle(
+          shadows: shadowColor != null
+              ? [
+                  Shadow(
+                    offset: const Offset(0, 1.4),
+                    blurRadius: 8.0,
+                    color: shadowColor!,
+                  ),
+                ]
+              : [],
           wordSpacing: wordSpacing ?? 0,
           fontSize: textSize ?? Utils.normalTextSize,
           color: textColor ?? ColorTable.getTextColor,
