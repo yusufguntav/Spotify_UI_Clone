@@ -15,6 +15,7 @@ class BottomNavBarController extends GetxController {
   final List<String> _mainPageRoutes = [
     PageRoutes.homePage,
     PageRoutes.searchPage,
+    PageRoutes.yourLibPage,
   ];
 
   changePage(index) {

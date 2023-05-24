@@ -3,4 +3,5 @@
 class PageRoutes {
   static String homePage = '/homePage';
   static String searchPage = '/searchPage';
+  static String yourLibPage = '/yourLibPage';
 }

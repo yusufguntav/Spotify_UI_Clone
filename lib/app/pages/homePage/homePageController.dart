@@ -10,12 +10,12 @@ import '../../widgets/filterBubble.dart';
 
 class HomePageController extends GetxController {
   List<Content> contents = [
-    Content(Images.image1.getImagePath, ['Comedy', 'Fiction'], 'yusufguntav', 'Something Podcast!'),
-    Content(Images.image5.getImagePath, ['Art', 'Business'], 'mack', 'Make Money'),
+    Content(Images.image1.getImagePath, [Type.comedy.getName, Type.fiction.getName], 'yusufguntav', 'Something Podcast!'),
+    Content(Images.image5.getImagePath, [Type.art.getName, Type.business.getName], 'mack', 'Make Money'),
     Content(Images.image3.getImagePath, [], 'newguy', 'Radio?'),
-    Content(Images.image2.getImagePath, ['Sports'], 'fit man', 'True Way'),
-    Content(Images.image4.getImagePath, ['Arts', 'Educational'], 'reader', 'Book101'),
-    Content(Images.image6.getImagePath, ['Business', 'Technology'], 'techguy', 'AI'),
+    Content(Images.image2.getImagePath, [Type.sports.getName], 'fit man', 'True Way'),
+    Content(Images.image4.getImagePath, [Type.art.getName, Type.educational.getName], 'reader', 'Book101'),
+    Content(Images.image6.getImagePath, [Type.business.getName, Type.technology.getName], 'techguy', 'AI'),
   ];
 
   List<Content> getShuffledContent() {

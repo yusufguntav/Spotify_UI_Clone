@@ -13,7 +13,7 @@ class CustomScaffold extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(8, 0, 8, Utils.appBarHeight),
+            padding: EdgeInsets.fromLTRB(8, 0, 8, Utils.navBarHeight),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: child,

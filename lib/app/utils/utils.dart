@@ -28,6 +28,6 @@ class Utils {
   static double get normalIconSize => Get.height * 0.025;
   static double get highIconSize => Get.height * 0.033;
   static double get extraHighIconSize => Get.height * 0.04;
-  //appBar Height
-  static double get appBarHeight => Get.height * 0.07;
+  //navBar Height
+  static double get navBarHeight => Get.height * 0.07;
 }

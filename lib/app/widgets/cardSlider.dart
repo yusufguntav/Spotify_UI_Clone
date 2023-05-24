@@ -16,10 +16,11 @@ class CardSlider extends StatelessWidget {
       width: Get.width,
       height: Get.height * .32,
       child: ListView.separated(
-          separatorBuilder: (context, index) => SizedBox(width: Utils.normalPadding),
-          scrollDirection: Axis.horizontal,
-          itemCount: content.length,
-          itemBuilder: (context, index) => BigCustomCard(content: content[index])),
+        separatorBuilder: (context, index) => SizedBox(width: Utils.normalPadding),
+        scrollDirection: Axis.horizontal,
+        itemCount: content.length,
+        itemBuilder: (context, index) => BigCustomCard(content: content[index]),
+      ),
     );
   }
 }

@@ -7,8 +7,7 @@ import 'package:spotify_ui_clone/app/widgets/filterBubble.dart';
 import '../utils/utils.dart';
 
 class FilterSlider extends StatelessWidget {
-  const FilterSlider({super.key, required this.filterCount, required this.filterBubbles});
-  final int filterCount;
+  const FilterSlider({super.key, required this.filterBubbles});
   final List<FilterBubble> filterBubbles;
 
   @override
@@ -16,13 +15,13 @@ class FilterSlider extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(color: ColorTable.darkThemeBackgroundColor),
       child: SizedBox(
-        height: Utils.appBarHeight,
+        height: Utils.navBarHeight,
         child: Padding(
           padding: EdgeInsets.all(Utils.lowPadding),
           child: ListView.separated(
             separatorBuilder: (context, index) => SizedBox(width: Utils.lowPadding),
             scrollDirection: Axis.horizontal,
-            itemCount: filterCount,
+            itemCount: filterBubbles.length,
             itemBuilder: (context, index) => filterBubbles[index],
           ),
         ),

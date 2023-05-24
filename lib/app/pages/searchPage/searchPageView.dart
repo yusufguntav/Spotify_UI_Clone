@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/pages/searchPage/searchPageController.dart';
 import 'package:spotify_ui_clone/app/style/colorTable.dart';
-import 'package:spotify_ui_clone/app/variables/enums.dart';
-import 'package:spotify_ui_clone/app/widgets/cardGrill.dart';
 import 'package:spotify_ui_clone/app/widgets/customText.dart';
-import 'package:spotify_ui_clone/app/widgets/genreCard.dart';
 import 'package:spotify_ui_clone/app/widgets/scaffold/customScaffold.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
@@ -24,32 +21,34 @@ class SearchPage extends GetView<SearchPageController> {
         CustomHeader(title: 'Search', icons: [controller.cameraIcon]),
         StickyHeader(
           header: searchBarButton,
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: Utils.highPadding),
-              CustomText('Browse all', bold: true),
-              SizedBox(height: Utils.highPadding),
-              Column(
-                children: [
-                  for (int i = 0; i < controller.genreCards.length; i += 2) ...[
-                    Row(
-                      children: [
-                        Expanded(child: controller.genreCards[i]),
-                        SizedBox(width: Utils.lowPadding),
-                        Expanded(child: controller.genreCards[i + 1]),
-                      ],
-                    ),
-                    SizedBox(height: Utils.normalPadding)
-                  ],
-                ],
-              ),
-            ],
-          ),
+          content: genreCards,
         )
       ],
     );
   }
+
+  Column get genreCards => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: Utils.highPadding),
+          CustomText('Browse all', bold: true),
+          SizedBox(height: Utils.highPadding),
+          Column(
+            children: [
+              for (int i = 0; i < controller.genreCards.length; i += 2) ...[
+                Row(
+                  children: [
+                    Expanded(child: controller.genreCards[i]),
+                    SizedBox(width: Utils.lowPadding),
+                    Expanded(child: controller.genreCards[i + 1]),
+                  ],
+                ),
+                SizedBox(height: Utils.normalPadding)
+              ],
+            ],
+          ),
+        ],
+      );
 
   DecoratedBox get searchBarButton => DecoratedBox(
         decoration: const BoxDecoration(color: Colors.white),

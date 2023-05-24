@@ -21,7 +21,7 @@ class HomePage extends GetView<HomePageController> {
       child: [
         CustomHeader(title: 'Good afternoon', icons: controller.icons),
         StickyHeader(
-          header: FilterSlider(filterCount: controller.filterBubbles.length, filterBubbles: controller.filterBubbles),
+          header: FilterSlider(filterBubbles: controller.filterBubbles),
           content: Column(
             children: [
               SizedBox(height: Utils.normalPadding),
