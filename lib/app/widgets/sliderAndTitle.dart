@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-import '../models/content.dart';
+import '../models/album.dart';
 import '../utils/utils.dart';
 import 'cardSlider.dart';
 import 'customText.dart';
 
 class SliderAndTitle extends StatelessWidget {
-  const SliderAndTitle({super.key, required this.content, required this.title});
-  final List<Content> content;
+  const SliderAndTitle({super.key, required this.albums, required this.title});
+  final List<Album> albums;
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class SliderAndTitle extends StatelessWidget {
       children: [
         CustomText.extraHigh(title, bold: true),
         SizedBox(height: Utils.normalPadding),
-        CardSlider(content: content),
+        CardSlider(albums: albums),
       ],
     );
   }

@@ -3,11 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotify_ui_clone/app/pages/searchPage/searchPageController.dart';
-import 'package:spotify_ui_clone/app/style/colorTable.dart';
 import 'package:spotify_ui_clone/app/widgets/customText.dart';
 import 'package:spotify_ui_clone/app/widgets/scaffold/customScaffold.dart';
+import 'package:spotify_ui_clone/app/widgets/searchBar.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
+import '../../style/colorTable.dart';
 import '../../utils/utils.dart';
 import '../../widgets/header.dart';
 
@@ -20,7 +21,13 @@ class SearchPage extends GetView<SearchPageController> {
       child: [
         CustomHeader(title: 'Search', icons: [controller.cameraIcon]),
         StickyHeader(
-          header: searchBarButton,
+          header: SearchBar(
+            textColor: ColorTable.greyTextColor,
+            backgroundColor: Colors.white,
+            text: 'What do you want to listen to ?',
+            width: null,
+            height: null,
+          ),
           content: genreCards,
         )
       ],
@@ -48,24 +55,5 @@ class SearchPage extends GetView<SearchPageController> {
             ],
           ),
         ],
-      );
-
-  DecoratedBox get searchBarButton => DecoratedBox(
-        decoration: const BoxDecoration(color: Colors.white),
-        child: SizedBox(
-          child: ListTile(
-            tileColor: Colors.white,
-            leading: Icon(
-              Icons.search,
-              size: Utils.highIconSize,
-            ),
-            horizontalTitleGap: 0,
-            title: CustomText(
-              'What do you want to listen to ?',
-              textColor: ColorTable.greyTextColor,
-              bold: true,
-            ),
-          ),
-        ),
       );
 }

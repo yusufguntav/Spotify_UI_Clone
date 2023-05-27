@@ -33,10 +33,12 @@ class YourLib extends GetView<YourLibController> {
               Expanded(
                 child: Obx(
                   () => ListView.builder(
-                    itemCount: controller.albums.length,
-                    itemBuilder: (context, index) => AlbumCard(
-                      album: controller.albums[index],
-                    ),
+                    itemCount: controller.homePageController.albums.length + 2,
+                    itemBuilder: (context, index) => index == 0
+                        ? AlbumCard(album: controller.likedSongsAlbum)
+                        : index == 1
+                            ? AlbumCard(album: controller.newEpisodes)
+                            : AlbumCard(album: controller.homePageController.albums[index - 2]),
                   ),
                 ),
               )

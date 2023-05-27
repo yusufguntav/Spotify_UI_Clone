@@ -1,4 +1,45 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../models/album.dart';
+
+Widget getAlbumImage(Album album, bool roundedCorner) {
+  return album.imagePath != null
+      ? roundedCorner
+          ? ClipRRect(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(Utils.lowRadius / 2), bottomLeft: Radius.circular(Utils.lowRadius / 2)),
+              child: Image.asset(
+                album.imagePath!,
+                fit: BoxFit.fill,
+              ),
+            )
+          : SizedBox.square(
+              dimension: Get.width * .15,
+              child: Image.asset(album.imagePath!, fit: BoxFit.fill),
+            )
+      : album.icon != null
+          ? DecoratedBox(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xff490ff2),
+                    Color(0xffd8fffb),
+                  ],
+                  stops: [0.2, 0.9],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+              child: SizedBox.square(
+                dimension: Get.width * .15,
+                child: Padding(
+                  padding: EdgeInsets.all(Utils.highPadding),
+                  child: album.icon,
+                ),
+              ),
+            )
+          : const SizedBox();
+}
 
 class Utils {
   //Size

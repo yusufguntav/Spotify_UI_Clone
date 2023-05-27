@@ -25,11 +25,11 @@ class HomePage extends GetView<HomePageController> {
           content: Column(
             children: [
               SizedBox(height: Utils.normalPadding),
-              CardGrill(content: controller.contents),
+              Obx(() => CardGrill(albums: controller.albums.value)),
               SizedBox(height: Utils.normalPadding),
-              SliderAndTitle(content: controller.contents, title: 'Your shows'),
+              Obx(() => SliderAndTitle(albums: controller.albums.value, title: 'Your shows')),
               SizedBox(height: Utils.highPadding),
-              SliderAndTitle(content: controller.getShuffledContent(), title: 'Recently')
+              Obx(() => SliderAndTitle(albums: controller.getShuffledAlbums(), title: 'Recently'))
             ],
           ),
         ),

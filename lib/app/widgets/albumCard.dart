@@ -13,34 +13,8 @@ class AlbumCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.all(Utils.lowPadding),
-      leading: album.imagePath != null
-          ? SizedBox.square(
-              dimension: Get.width * .15,
-              child: Image.asset(album.imagePath!, fit: BoxFit.fill),
-            )
-          : album.icon != null
-              ? DecoratedBox(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xff490ff2),
-                        Color(0xffd8fffb),
-                      ],
-                      stops: [0.2, 0.9],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: SizedBox.square(
-                    dimension: Get.width * .15,
-                    child: Padding(
-                      padding: EdgeInsets.all(Utils.highPadding),
-                      child: album.icon,
-                    ),
-                  ),
-                )
-              : const SizedBox(),
+      contentPadding: EdgeInsets.symmetric(horizontal: Utils.lowPadding),
+      leading: getAlbumImage(album, false),
       title: CustomText(
         album.title,
         textColor: album.active ? ColorTable.greenContentColor : Colors.white,
